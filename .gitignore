@@ -7,3 +7,6 @@
 #ignore generated html or latex from doxygen
 ./doc/html
 ./doc/latex
+
+#ignore the root build file
+./build
