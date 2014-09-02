@@ -37,7 +37,7 @@ public:
     documentWorker(QObject *parent = 0);
     ~documentWorker();
 
-    bool configureDocument(QString docConfPath = QString::QString(""), CDC_status *retStatus = NULL);
+    bool configureDocument(QString docConfPath = "", CDC_status *retStatus = NULL);
 
     /**
      * @brief Reads contents of file into inputFileContents and the returns them.

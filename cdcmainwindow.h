@@ -52,7 +52,7 @@ signals:
 
 public slots: 
     void messageHandler(QtMsgType type, const char *msg, bool isDialog);
-    void openProject(QString fileName = QString::QString(""));
+    void openProject(QString fileName = "");
 
 private slots:
     void menuActionAbout();

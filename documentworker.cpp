@@ -112,7 +112,8 @@ bool documentWorker::configureDocument(QString docConfPath, CDC_status *retStatu
                 qDebug() << QString(__FUNCTION__) << "Found input file"<< tempTag[i];
                 // All ok! Appending new input file to document's list
                 CDC_inputFile newInputFile;
-                ifile->setFileName(QFileInfo::QFileInfo(*ifile).canonicalFilePath());
+                QFileInfo finfo(*ifile);
+                ifile->setFileName(finfo.canonicalFilePath());
                 newInputFile.file = ifile;
                 newInputFile.modified = false;
                 newInputFile.contents = QString("");
@@ -141,16 +142,17 @@ QString documentWorker::getInputFileContents(int index, CDC_status * retStatus) 
     if(!(index < inputFiles.length() && index >= 0)) {
         qWarning() << QString(__FUNCTION__) << "Invalid index";
         if(retStatus != NULL) *retStatus = CDC_status::paramError;
-        return QString::QString("");
+        return "";
     }
     if(inputFiles[index].contents.isEmpty()) {
         if(!inputFiles[index].file->isOpen())
             if(!inputFiles[index].file->open(QIODevice::ReadWrite)) {
                 qWarning() << QString(__FUNCTION__) << "Unable to load file " << inputFiles[index].file->fileName();
                 if(retStatus != NULL) *retStatus = CDC_status::ioError;
-                return QString::QString("");
+                return "";
             }
-        inputFiles[index].contents = QTextStream::QTextStream(inputFiles[index].file).readAll();
+        QTextStream txstream(inputFiles[index].file);
+        inputFiles[index].contents = txstream.readAll();
         inputFiles[index].file->close();
     }
     return inputFiles[index].contents;

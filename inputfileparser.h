@@ -43,7 +43,7 @@ public:
      * @param ifcontents
      * @return Whether any kind of structural element was found in the analysed file.
      */
-    bool parseInputFile(QString ifcontents = QString::QString(""));
+    bool parseInputFile(QString ifcontents = "");
 
     /**
      * @brief parseInputFile

@@ -26,7 +26,7 @@ const QString syntaxnameNone      = "None";
 /**************************************** CONSTRUCTOR *******************************************/
 cdcMainWindow::cdcMainWindow(QWidget *parent) :
     QMainWindow(parent),
-    currentDocumentTag(QString::QString("")),
+    currentDocumentTag(""),
     currentDocumentInputFileIndex(-1),
     analysisThreshold(0),
     windowTitle(QString("CrossDocs GUI"))

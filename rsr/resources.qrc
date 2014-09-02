@@ -13,8 +13,6 @@
         <file>icons/gnomesubtract.png</file>
         <file>icons/gnomecamera.png</file>
         <file>icons/gnomefullscreen.png</file>
-        <file>images/lena.png</file>
-        <file>images/nullframe.png</file>
         <file>icons/run.png</file>
         <file>icons/new_star.png</file>
     </qresource>
