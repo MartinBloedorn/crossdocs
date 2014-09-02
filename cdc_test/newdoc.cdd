@@ -1,0 +1,10 @@
+document:
+newdoc.cdd
+
+name:
+New Document
+
+input_files:
+somepage.cdp
+/Users/martin/Workspaces/qt/crossdocs_gui/cdc_test/doc/otherpage.cdp
+../cdc_test/extrapage.cdp

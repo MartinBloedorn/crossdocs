@@ -1,0 +1,70 @@
+\hypertarget{configurationfileparser_8cpp}{\section{/\+Users/martin/\+Workspaces/qt/crossdocs\+\_\+gui/configurationfileparser.cpp File Reference}
+\label{configurationfileparser_8cpp}\index{/\+Users/martin/\+Workspaces/qt/crossdocs\+\_\+gui/configurationfileparser.\+cpp@{/\+Users/martin/\+Workspaces/qt/crossdocs\+\_\+gui/configurationfileparser.\+cpp}}
+}
+
+
+Definitions for $\ast$.cdc file parsing.  
+
+
+{\ttfamily \#include \char`\"{}configurationfileparser.\+h\char`\"{}}\\*
+Include dependency graph for configurationfileparser.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{configurationfileparser_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{configurationfileparser_8cpp_a03975fe93d45f171264b2ac18fdd47cb}{C\+D\+C\+\_\+c\+State} \{ \hyperlink{configurationfileparser_8cpp_a03975fe93d45f171264b2ac18fdd47cbaec2f993aec2c27fc750119ab17b16cdb}{C\+D\+C\+\_\+c\+State\+::idle}, 
+\hyperlink{configurationfileparser_8cpp_a03975fe93d45f171264b2ac18fdd47cba8ff8a0434cd2480bbba581a4e93b78f3}{C\+D\+C\+\_\+c\+State\+::at\+\_\+header}, 
+\hyperlink{configurationfileparser_8cpp_a03975fe93d45f171264b2ac18fdd47cbad9eec784bf1f493012bcbcde06f3e4b9}{C\+D\+C\+\_\+c\+State\+::at\+\_\+argument}, 
+\hyperlink{configurationfileparser_8cpp_a03975fe93d45f171264b2ac18fdd47cbae11185b6e35c1b767174dc988aa0f179}{C\+D\+C\+\_\+c\+State\+::fail}
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definitions for $\ast$.cdc file parsing. 
+
+
+
+ / \+\_\+\+\_\+ \textbackslash{} $\vert$ \+\_\+ \textbackslash{} $\vert$ / \textbackslash{}/\+\_\+ \+\_\+\+\_\+ \+\_\+\+\_\+\+\_\+ \+\_\+\+\_\+\+\_\+ \+\_\+\+\_\+\+\_\+$\vert$ $\vert$ $\vert$ $\vert$\+\_\+\+\_\+\+\_\+ \+\_\+\+\_\+\+\_\+ \+\_\+\+\_\+\+\_\+ $\vert$ $\vert$ $\vert$ '\+\_\+\+\_\+/ \+\_\+ \textbackslash{}/ \+\_\+\+\_\+/ \+\_\+\+\_\+$\vert$ $\vert$ $\vert$ / \+\_\+ \textbackslash{} / \+\_\+\+\_\+/ \+\_\+\+\_\+$\vert$ $\vert$ \+\_\+\+\_\+/\textbackslash{} $\vert$ $\vert$ $\vert$\+\_\+$\vert$ \+\_\+\+\_\+ \+\_\+\+\_\+ \textbackslash{} $\vert$/ / $\vert$\+\_\+$\vert$ $\vert$ (\+\_\+\+\_\+\+\_\+\+\_\+ \textbackslash{} \+\_\+\+\_\+\+\_\+\+\_\+/\+\_\+$\vert$ \+\_\+\+\_\+\+\_\+/$\vert$\+\_\+\+\_\+\+\_\+/\+\_\+\+\_\+\+\_\+/\+\_\+\+\_\+\+\_\+/ \+\_\+\+\_\+\+\_\+/ \+\_\+\+\_\+\+\_\+$\vert$\+\_\+\+\_\+\+\_\+/
+
+\begin{DoxyAuthor}{Author}
+Martin Vincent Bloedorn 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+03-\/\+August-\/2014 
+\end{DoxyDate}
+
+
+Definition in file \hyperlink{configurationfileparser_8cpp_source}{configurationfileparser.\+cpp}.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{configurationfileparser_8cpp_a03975fe93d45f171264b2ac18fdd47cb}{\index{configurationfileparser.\+cpp@{configurationfileparser.\+cpp}!C\+D\+C\+\_\+c\+State@{C\+D\+C\+\_\+c\+State}}
+\index{C\+D\+C\+\_\+c\+State@{C\+D\+C\+\_\+c\+State}!configurationfileparser.\+cpp@{configurationfileparser.\+cpp}}
+\subsubsection[{C\+D\+C\+\_\+c\+State}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf C\+D\+C\+\_\+c\+State}\hspace{0.3cm}{\ttfamily [strong]}}}\label{configurationfileparser_8cpp_a03975fe93d45f171264b2ac18fdd47cb}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{idle@{idle}!configurationfileparser.\+cpp@{configurationfileparser.\+cpp}}\index{configurationfileparser.\+cpp@{configurationfileparser.\+cpp}!idle@{idle}}\item[{\em 
+\hypertarget{configurationfileparser_8cpp_a03975fe93d45f171264b2ac18fdd47cbaec2f993aec2c27fc750119ab17b16cdb}{idle}\label{configurationfileparser_8cpp_a03975fe93d45f171264b2ac18fdd47cbaec2f993aec2c27fc750119ab17b16cdb}
+}]\index{at\+\_\+header@{at\+\_\+header}!configurationfileparser.\+cpp@{configurationfileparser.\+cpp}}\index{configurationfileparser.\+cpp@{configurationfileparser.\+cpp}!at\+\_\+header@{at\+\_\+header}}\item[{\em 
+\hypertarget{configurationfileparser_8cpp_a03975fe93d45f171264b2ac18fdd47cba8ff8a0434cd2480bbba581a4e93b78f3}{at\+\_\+header}\label{configurationfileparser_8cpp_a03975fe93d45f171264b2ac18fdd47cba8ff8a0434cd2480bbba581a4e93b78f3}
+}]\index{at\+\_\+argument@{at\+\_\+argument}!configurationfileparser.\+cpp@{configurationfileparser.\+cpp}}\index{configurationfileparser.\+cpp@{configurationfileparser.\+cpp}!at\+\_\+argument@{at\+\_\+argument}}\item[{\em 
+\hypertarget{configurationfileparser_8cpp_a03975fe93d45f171264b2ac18fdd47cbad9eec784bf1f493012bcbcde06f3e4b9}{at\+\_\+argument}\label{configurationfileparser_8cpp_a03975fe93d45f171264b2ac18fdd47cbad9eec784bf1f493012bcbcde06f3e4b9}
+}]\index{fail@{fail}!configurationfileparser.\+cpp@{configurationfileparser.\+cpp}}\index{configurationfileparser.\+cpp@{configurationfileparser.\+cpp}!fail@{fail}}\item[{\em 
+\hypertarget{configurationfileparser_8cpp_a03975fe93d45f171264b2ac18fdd47cbae11185b6e35c1b767174dc988aa0f179}{fail}\label{configurationfileparser_8cpp_a03975fe93d45f171264b2ac18fdd47cbae11185b6e35c1b767174dc988aa0f179}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 23 of file configurationfileparser.\+cpp.
+

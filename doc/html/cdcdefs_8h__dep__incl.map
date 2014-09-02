@@ -1,0 +1,13 @@
+<map id="/Users/martin/Workspaces/qt/crossdocs_gui/cdcdefs.h" name="/Users/martin/Workspaces/qt/crossdocs_gui/cdcdefs.h">
+<area shape="rect" id="node2" href="$projectworker_8h.html" title="CDC project functions: management, build engine, etc. " alt="" coords="25,265,244,304"/>
+<area shape="rect" id="node7" href="$configurationfileparser_8h.html" title="Definitions for *.cdc file parsing. " alt="" coords="77,92,347,131"/>
+<area shape="rect" id="node8" href="$documentworker_8h.html" title="/Users/martin/Workspaces\l/qt/crossdocs_gui/documentworker.h" alt="" coords="351,179,588,217"/>
+<area shape="rect" id="node11" href="$inputfileparser_8h.html" title="/Users/martin/Workspaces\l/qt/crossdocs_gui/inputfileparser.h" alt="" coords="514,92,737,131"/>
+<area shape="rect" id="node3" href="$cdcmainwindow_8h.html" title="/Users/martin/Workspaces\l/qt/crossdocs_gui/cdcmainwindow.h" alt="" coords="363,352,597,391"/>
+<area shape="rect" id="node6" href="$projectworker_8cpp.html" title="CDC document functions: management, build engine, etc. " alt="" coords="18,352,251,391"/>
+<area shape="rect" id="node4" href="$cdcmainwindow_8cpp.html" title="/Users/martin/Workspaces\l/qt/crossdocs_gui/cdcmainwindow.cpp" alt="" coords="314,439,561,477"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="CrossDocs GUI entry point. " alt="" coords="585,439,768,477"/>
+<area shape="rect" id="node10" href="$configurationfileparser_8cpp.html" title="Definitions for *.cdc file parsing. " alt="" coords="42,179,326,217"/>
+<area shape="rect" id="node9" href="$documentworker_8cpp.html" title="CDC document functions: management, build engine, etc. " alt="" coords="337,265,589,304"/>
+<area shape="rect" id="node12" href="$inputfileparser_8cpp.html" title="Analyses input file for its sections, subsections, etc. " alt="" coords="714,179,951,217"/>
+</map>

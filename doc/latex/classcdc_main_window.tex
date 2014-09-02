@@ -1,0 +1,519 @@
+\hypertarget{classcdc_main_window}{\section{cdc\+Main\+Window Class Reference}
+\label{classcdc_main_window}\index{cdc\+Main\+Window@{cdc\+Main\+Window}}
+}
+
+
+{\ttfamily \#include $<$cdcmainwindow.\+h$>$}
+
+
+
+Inheritance diagram for cdc\+Main\+Window\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{classcdc_main_window__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for cdc\+Main\+Window\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcdc_main_window__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcdc_main_window_afe66a2955f78dca82931e14113abd139}{message\+Handler} (Qt\+Msg\+Type type, const char $\ast$msg, bool is\+Dialog)
+\item 
+void \hyperlink{classcdc_main_window_ab0992edf8cb9284fe7068bd24aabce0d}{open\+Project} (Q\+String file\+Name=Q\+String\+::\+Q\+String(\char`\"{}\char`\"{}))
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcdc_main_window_a152934d912eba5b8d46ffc909705e753}{cdc\+Main\+Window} (Q\+Widget $\ast$parent=0)
+\item 
+\hyperlink{classcdc_main_window_afc27c52a07905eb44b90265ccb716bc4}{$\sim$cdc\+Main\+Window} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcdc_main_window_aae83c9e69786db44cddbedc869e778ee}{menu\+Action\+About} ()
+\item 
+void \hyperlink{classcdc_main_window_a4c5cd1095df7a9c7b81d492f8584cc7c}{toggle\+Fullscreen} (bool)
+\item 
+void \hyperlink{classcdc_main_window_a3bfb1c19a7c341ec29209ce671a31244}{request\+Build} ()
+\item 
+void \hyperlink{classcdc_main_window_a788d8721e83a4bdfb7f29364f43c2664}{open} ()
+\item 
+void \hyperlink{classcdc_main_window_a270552b000c6e8142dfa58d24621b571}{load\+Project} ()
+\item 
+void \hyperlink{classcdc_main_window_a9922f5b1de24ca399aa8ad18758e9339}{create\+New} ()
+\item 
+void \hyperlink{classcdc_main_window_ac03dde5c25ceda203773aabb84bc24ef}{project\+Tree\+Item\+Selected} ()
+\item 
+void \hyperlink{classcdc_main_window_a95ba6457d858d22fc15246a6f1deaf71}{list\+Files\+Widget\+Selected} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcdc_main_window_a6da58a8decd1c57d5b61a318baff0894}{create\+Actions} ()
+\item 
+void \hyperlink{classcdc_main_window_ae4951ac1c365e34d3182cca170e1bf9f}{create\+Menus} ()
+\item 
+void \hyperlink{classcdc_main_window_a1e637d866cb42165fb7f27c92d40f5e0}{create\+Toolbars} ()
+\item 
+void \hyperlink{classcdc_main_window_a15906e7ebff4d21e4b4e35774458e99e}{create\+Status\+Bar} ()
+\item 
+void \hyperlink{classcdc_main_window_a14699c304214e6939300e2a9945e9bbe}{create\+Widgets} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classproject_worker}{project\+Worker} $\ast$ \hyperlink{classcdc_main_window_a2ab9ee82b6b3a303bfecaa9f477f8595}{pw}
+\item 
+Q\+String\+List \hyperlink{classcdc_main_window_aca67c5aa9dee926f1ea9190b23709d7d}{doctag\+List}
+\item 
+Q\+String \hyperlink{classcdc_main_window_a2a636f427e14608215f1115de3369ded}{current\+Project\+Path}
+\item 
+Q\+String \hyperlink{classcdc_main_window_aa819ac3dd6acd06ae65d136a4f683e97}{current\+Document\+Tag}
+\item 
+int \hyperlink{classcdc_main_window_aca3064de74e5cf938c009d5ab8f2e805}{current\+Document\+Input\+File\+Index}
+\item 
+Q\+String \hyperlink{classcdc_main_window_a1ca58eeaa25a25ef5f1dbc6772d0853a}{window\+Title}
+\item 
+Q\+Tool\+Bar $\ast$ \hyperlink{classcdc_main_window_a5d1a9fb552d49501601e0f815e1205f0}{toolbar\+File}
+\item 
+Q\+Text\+Edit $\ast$ \hyperlink{classcdc_main_window_ad2f451768cf6b6d2d2e828a0598a7b67}{plain\+Text\+Editor}
+\item 
+Q\+Text\+Edit $\ast$ \hyperlink{classcdc_main_window_acf5379568430403fc8080d3e2fdc22f4}{log\+Area}
+\item 
+Q\+List\+Widget $\ast$ \hyperlink{classcdc_main_window_a5e658d4cb5bc593d10e30b9fbf680c84}{list\+Files\+Widget}
+\item 
+Q\+Web\+View $\ast$ \hyperlink{classcdc_main_window_a9b0360abdaa43b49ba788baf4dab83fa}{web\+View}
+\item 
+Q\+Tree\+View $\ast$ \hyperlink{classcdc_main_window_a5adfe51057f2e53feddc1367cf50609e}{tree\+Project}
+\item 
+Q\+Menu $\ast$ \hyperlink{classcdc_main_window_a10261cfc57f6d2f7dc8d69c449ded903}{menu\+File}
+\item 
+Q\+Menu $\ast$ \hyperlink{classcdc_main_window_a0d41f03c46c693ee6a4d82b807aaca6b}{menu\+Edit}
+\item 
+Q\+Menu $\ast$ \hyperlink{classcdc_main_window_a8ad1d65233c7c537387d633e73693fb2}{menu\+Help}
+\item 
+Q\+Menu $\ast$ \hyperlink{classcdc_main_window_aff43f7f9a42d9aaa9f468acc48399cc2}{menu\+View}
+\item 
+Q\+Action $\ast$ \hyperlink{classcdc_main_window_a31bfc3ddbac31b5a2b98871fefd97bee}{action\+Exit}
+\item 
+Q\+Action $\ast$ \hyperlink{classcdc_main_window_acaec69cb2e1bcea186dbad417d0d354c}{action\+Open}
+\item 
+Q\+Action $\ast$ \hyperlink{classcdc_main_window_a5b9b87879809858881d876d1108a7900}{action\+Open\+Project}
+\item 
+Q\+Action $\ast$ \hyperlink{classcdc_main_window_a7e1acb848a40fdf54379bfb5225cf444}{action\+New}
+\item 
+Q\+Action $\ast$ \hyperlink{classcdc_main_window_a2eda25173588377e053709151eedb45b}{action\+Build}
+\item 
+Q\+Action $\ast$ \hyperlink{classcdc_main_window_abf4b137386bb0359be919260b3fa191e}{action\+Test}
+\item 
+Q\+Action $\ast$ \hyperlink{classcdc_main_window_a8a7300a5a0add46d6169ced5671307f9}{action\+About}
+\item 
+Q\+Action $\ast$ \hyperlink{classcdc_main_window_a5777b81d9c0851fac15e8e29bcba8443}{action\+About\+Qt}
+\item 
+Q\+Action $\ast$ \hyperlink{classcdc_main_window_a78e4d0015c1666c749ebb982d54f9ce4}{action\+Toggle\+Fullscreen}
+\item 
+Q\+Action $\ast$ \hyperlink{classcdc_main_window_a5a2cda69acc2d963b38593709d0b191e}{action\+Preferences}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 32 of file cdcmainwindow.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classcdc_main_window_a152934d912eba5b8d46ffc909705e753}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\index{cdc\+Main\+Window@{cdc\+Main\+Window}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{cdc\+Main\+Window}]{\setlength{\rightskip}{0pt plus 5cm}cdc\+Main\+Window\+::cdc\+Main\+Window (
+\begin{DoxyParamCaption}
+\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{classcdc_main_window_a152934d912eba5b8d46ffc909705e753}
+
+
+Definition at line 24 of file cdcmainwindow.\+cpp.
+
+\hypertarget{classcdc_main_window_afc27c52a07905eb44b90265ccb716bc4}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!````~cdc\+Main\+Window@{$\sim$cdc\+Main\+Window}}
+\index{````~cdc\+Main\+Window@{$\sim$cdc\+Main\+Window}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{$\sim$cdc\+Main\+Window}]{\setlength{\rightskip}{0pt plus 5cm}cdc\+Main\+Window\+::$\sim$cdc\+Main\+Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcdc_main_window_afc27c52a07905eb44b90265ccb716bc4}
+
+
+Definition at line 44 of file cdcmainwindow.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classcdc_main_window_a6da58a8decd1c57d5b61a318baff0894}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!create\+Actions@{create\+Actions}}
+\index{create\+Actions@{create\+Actions}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{create\+Actions}]{\setlength{\rightskip}{0pt plus 5cm}void cdc\+Main\+Window\+::create\+Actions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a6da58a8decd1c57d5b61a318baff0894}
+
+
+Definition at line 208 of file cdcmainwindow.\+cpp.
+
+\hypertarget{classcdc_main_window_ae4951ac1c365e34d3182cca170e1bf9f}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!create\+Menus@{create\+Menus}}
+\index{create\+Menus@{create\+Menus}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{create\+Menus}]{\setlength{\rightskip}{0pt plus 5cm}void cdc\+Main\+Window\+::create\+Menus (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_ae4951ac1c365e34d3182cca170e1bf9f}
+
+
+Definition at line 256 of file cdcmainwindow.\+cpp.
+
+\hypertarget{classcdc_main_window_a9922f5b1de24ca399aa8ad18758e9339}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!create\+New@{create\+New}}
+\index{create\+New@{create\+New}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{create\+New}]{\setlength{\rightskip}{0pt plus 5cm}void cdc\+Main\+Window\+::create\+New (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{classcdc_main_window_a9922f5b1de24ca399aa8ad18758e9339}
+
+
+Definition at line 138 of file cdcmainwindow.\+cpp.
+
+\hypertarget{classcdc_main_window_a15906e7ebff4d21e4b4e35774458e99e}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!create\+Status\+Bar@{create\+Status\+Bar}}
+\index{create\+Status\+Bar@{create\+Status\+Bar}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{create\+Status\+Bar}]{\setlength{\rightskip}{0pt plus 5cm}void cdc\+Main\+Window\+::create\+Status\+Bar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a15906e7ebff4d21e4b4e35774458e99e}
+
+
+Definition at line 289 of file cdcmainwindow.\+cpp.
+
+\hypertarget{classcdc_main_window_a1e637d866cb42165fb7f27c92d40f5e0}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!create\+Toolbars@{create\+Toolbars}}
+\index{create\+Toolbars@{create\+Toolbars}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{create\+Toolbars}]{\setlength{\rightskip}{0pt plus 5cm}void cdc\+Main\+Window\+::create\+Toolbars (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a1e637d866cb42165fb7f27c92d40f5e0}
+
+
+Definition at line 277 of file cdcmainwindow.\+cpp.
+
+\hypertarget{classcdc_main_window_a14699c304214e6939300e2a9945e9bbe}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!create\+Widgets@{create\+Widgets}}
+\index{create\+Widgets@{create\+Widgets}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{create\+Widgets}]{\setlength{\rightskip}{0pt plus 5cm}void cdc\+Main\+Window\+::create\+Widgets (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a14699c304214e6939300e2a9945e9bbe}
+
+
+Definition at line 294 of file cdcmainwindow.\+cpp.
+
+\hypertarget{classcdc_main_window_a95ba6457d858d22fc15246a6f1deaf71}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!list\+Files\+Widget\+Selected@{list\+Files\+Widget\+Selected}}
+\index{list\+Files\+Widget\+Selected@{list\+Files\+Widget\+Selected}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{list\+Files\+Widget\+Selected}]{\setlength{\rightskip}{0pt plus 5cm}void cdc\+Main\+Window\+::list\+Files\+Widget\+Selected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{classcdc_main_window_a95ba6457d858d22fc15246a6f1deaf71}
+
+
+Definition at line 162 of file cdcmainwindow.\+cpp.
+
+\hypertarget{classcdc_main_window_a270552b000c6e8142dfa58d24621b571}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!load\+Project@{load\+Project}}
+\index{load\+Project@{load\+Project}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{load\+Project}]{\setlength{\rightskip}{0pt plus 5cm}void cdc\+Main\+Window\+::load\+Project (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{classcdc_main_window_a270552b000c6e8142dfa58d24621b571}
+
+
+Definition at line 115 of file cdcmainwindow.\+cpp.
+
+\hypertarget{classcdc_main_window_aae83c9e69786db44cddbedc869e778ee}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!menu\+Action\+About@{menu\+Action\+About}}
+\index{menu\+Action\+About@{menu\+Action\+About}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{menu\+Action\+About}]{\setlength{\rightskip}{0pt plus 5cm}void cdc\+Main\+Window\+::menu\+Action\+About (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{classcdc_main_window_aae83c9e69786db44cddbedc869e778ee}
+
+
+Definition at line 56 of file cdcmainwindow.\+cpp.
+
+\hypertarget{classcdc_main_window_afe66a2955f78dca82931e14113abd139}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!message\+Handler@{message\+Handler}}
+\index{message\+Handler@{message\+Handler}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{message\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}void cdc\+Main\+Window\+::message\+Handler (
+\begin{DoxyParamCaption}
+\item[{Qt\+Msg\+Type}]{type, }
+\item[{const char $\ast$}]{msg, }
+\item[{bool}]{is\+Dialog}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classcdc_main_window_afe66a2955f78dca82931e14113abd139}
+
+
+Definition at line 171 of file cdcmainwindow.\+cpp.
+
+\hypertarget{classcdc_main_window_a788d8721e83a4bdfb7f29364f43c2664}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!open@{open}}
+\index{open@{open}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{open}]{\setlength{\rightskip}{0pt plus 5cm}void cdc\+Main\+Window\+::open (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{classcdc_main_window_a788d8721e83a4bdfb7f29364f43c2664}
+
+
+Definition at line 81 of file cdcmainwindow.\+cpp.
+
+\hypertarget{classcdc_main_window_ab0992edf8cb9284fe7068bd24aabce0d}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!open\+Project@{open\+Project}}
+\index{open\+Project@{open\+Project}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{open\+Project}]{\setlength{\rightskip}{0pt plus 5cm}void cdc\+Main\+Window\+::open\+Project (
+\begin{DoxyParamCaption}
+\item[{Q\+String}]{file\+Name = {\ttfamily QString\+:\+:QString(\char`\"{}\char`\"{})}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classcdc_main_window_ab0992edf8cb9284fe7068bd24aabce0d}
+
+
+Definition at line 102 of file cdcmainwindow.\+cpp.
+
+\hypertarget{classcdc_main_window_ac03dde5c25ceda203773aabb84bc24ef}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!project\+Tree\+Item\+Selected@{project\+Tree\+Item\+Selected}}
+\index{project\+Tree\+Item\+Selected@{project\+Tree\+Item\+Selected}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{project\+Tree\+Item\+Selected}]{\setlength{\rightskip}{0pt plus 5cm}void cdc\+Main\+Window\+::project\+Tree\+Item\+Selected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{classcdc_main_window_ac03dde5c25ceda203773aabb84bc24ef}
+
+
+Definition at line 142 of file cdcmainwindow.\+cpp.
+
+\hypertarget{classcdc_main_window_a3bfb1c19a7c341ec29209ce671a31244}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!request\+Build@{request\+Build}}
+\index{request\+Build@{request\+Build}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{request\+Build}]{\setlength{\rightskip}{0pt plus 5cm}void cdc\+Main\+Window\+::request\+Build (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{classcdc_main_window_a3bfb1c19a7c341ec29209ce671a31244}
+
+
+Definition at line 61 of file cdcmainwindow.\+cpp.
+
+\hypertarget{classcdc_main_window_a4c5cd1095df7a9c7b81d492f8584cc7c}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!toggle\+Fullscreen@{toggle\+Fullscreen}}
+\index{toggle\+Fullscreen@{toggle\+Fullscreen}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{toggle\+Fullscreen}]{\setlength{\rightskip}{0pt plus 5cm}void cdc\+Main\+Window\+::toggle\+Fullscreen (
+\begin{DoxyParamCaption}
+\item[{bool}]{fs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}}\label{classcdc_main_window_a4c5cd1095df7a9c7b81d492f8584cc7c}
+
+
+Definition at line 50 of file cdcmainwindow.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classcdc_main_window_a8a7300a5a0add46d6169ced5671307f9}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!action\+About@{action\+About}}
+\index{action\+About@{action\+About}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{action\+About}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Action$\ast$ cdc\+Main\+Window\+::action\+About\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a8a7300a5a0add46d6169ced5671307f9}
+
+
+Definition at line 92 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_a5777b81d9c0851fac15e8e29bcba8443}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!action\+About\+Qt@{action\+About\+Qt}}
+\index{action\+About\+Qt@{action\+About\+Qt}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{action\+About\+Qt}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Action$\ast$ cdc\+Main\+Window\+::action\+About\+Qt\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a5777b81d9c0851fac15e8e29bcba8443}
+
+
+Definition at line 93 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_a2eda25173588377e053709151eedb45b}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!action\+Build@{action\+Build}}
+\index{action\+Build@{action\+Build}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{action\+Build}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Action$\ast$ cdc\+Main\+Window\+::action\+Build\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a2eda25173588377e053709151eedb45b}
+
+
+Definition at line 90 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_a31bfc3ddbac31b5a2b98871fefd97bee}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!action\+Exit@{action\+Exit}}
+\index{action\+Exit@{action\+Exit}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{action\+Exit}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Action$\ast$ cdc\+Main\+Window\+::action\+Exit\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a31bfc3ddbac31b5a2b98871fefd97bee}
+
+
+Definition at line 86 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_a7e1acb848a40fdf54379bfb5225cf444}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!action\+New@{action\+New}}
+\index{action\+New@{action\+New}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{action\+New}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Action$\ast$ cdc\+Main\+Window\+::action\+New\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a7e1acb848a40fdf54379bfb5225cf444}
+
+
+Definition at line 89 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_acaec69cb2e1bcea186dbad417d0d354c}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!action\+Open@{action\+Open}}
+\index{action\+Open@{action\+Open}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{action\+Open}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Action$\ast$ cdc\+Main\+Window\+::action\+Open\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_acaec69cb2e1bcea186dbad417d0d354c}
+
+
+Definition at line 87 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_a5b9b87879809858881d876d1108a7900}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!action\+Open\+Project@{action\+Open\+Project}}
+\index{action\+Open\+Project@{action\+Open\+Project}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{action\+Open\+Project}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Action$\ast$ cdc\+Main\+Window\+::action\+Open\+Project\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a5b9b87879809858881d876d1108a7900}
+
+
+Definition at line 88 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_a5a2cda69acc2d963b38593709d0b191e}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!action\+Preferences@{action\+Preferences}}
+\index{action\+Preferences@{action\+Preferences}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{action\+Preferences}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Action$\ast$ cdc\+Main\+Window\+::action\+Preferences\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a5a2cda69acc2d963b38593709d0b191e}
+
+
+Definition at line 95 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_abf4b137386bb0359be919260b3fa191e}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!action\+Test@{action\+Test}}
+\index{action\+Test@{action\+Test}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{action\+Test}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Action$\ast$ cdc\+Main\+Window\+::action\+Test\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_abf4b137386bb0359be919260b3fa191e}
+
+
+Definition at line 91 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_a78e4d0015c1666c749ebb982d54f9ce4}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!action\+Toggle\+Fullscreen@{action\+Toggle\+Fullscreen}}
+\index{action\+Toggle\+Fullscreen@{action\+Toggle\+Fullscreen}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{action\+Toggle\+Fullscreen}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Action$\ast$ cdc\+Main\+Window\+::action\+Toggle\+Fullscreen\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a78e4d0015c1666c749ebb982d54f9ce4}
+
+
+Definition at line 94 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_aca3064de74e5cf938c009d5ab8f2e805}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!current\+Document\+Input\+File\+Index@{current\+Document\+Input\+File\+Index}}
+\index{current\+Document\+Input\+File\+Index@{current\+Document\+Input\+File\+Index}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{current\+Document\+Input\+File\+Index}]{\setlength{\rightskip}{0pt plus 5cm}int cdc\+Main\+Window\+::current\+Document\+Input\+File\+Index\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_aca3064de74e5cf938c009d5ab8f2e805}
+
+
+Definition at line 70 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_aa819ac3dd6acd06ae65d136a4f683e97}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!current\+Document\+Tag@{current\+Document\+Tag}}
+\index{current\+Document\+Tag@{current\+Document\+Tag}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{current\+Document\+Tag}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String cdc\+Main\+Window\+::current\+Document\+Tag\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_aa819ac3dd6acd06ae65d136a4f683e97}
+
+
+Definition at line 69 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_a2a636f427e14608215f1115de3369ded}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!current\+Project\+Path@{current\+Project\+Path}}
+\index{current\+Project\+Path@{current\+Project\+Path}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{current\+Project\+Path}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String cdc\+Main\+Window\+::current\+Project\+Path\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a2a636f427e14608215f1115de3369ded}
+\hyperlink{classcdc_main_window}{cdc\+Main\+Window} stores only the documents' tags Relevant implementation information is thus kept hidden. 
+
+Definition at line 68 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_aca67c5aa9dee926f1ea9190b23709d7d}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!doctag\+List@{doctag\+List}}
+\index{doctag\+List@{doctag\+List}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{doctag\+List}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String\+List cdc\+Main\+Window\+::doctag\+List\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_aca67c5aa9dee926f1ea9190b23709d7d}
+
+
+Definition at line 65 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_a5e658d4cb5bc593d10e30b9fbf680c84}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!list\+Files\+Widget@{list\+Files\+Widget}}
+\index{list\+Files\+Widget@{list\+Files\+Widget}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{list\+Files\+Widget}]{\setlength{\rightskip}{0pt plus 5cm}Q\+List\+Widget$\ast$ cdc\+Main\+Window\+::list\+Files\+Widget\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a5e658d4cb5bc593d10e30b9fbf680c84}
+
+
+Definition at line 77 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_acf5379568430403fc8080d3e2fdc22f4}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!log\+Area@{log\+Area}}
+\index{log\+Area@{log\+Area}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{log\+Area}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Text\+Edit$\ast$ cdc\+Main\+Window\+::log\+Area\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_acf5379568430403fc8080d3e2fdc22f4}
+
+
+Definition at line 76 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_a0d41f03c46c693ee6a4d82b807aaca6b}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!menu\+Edit@{menu\+Edit}}
+\index{menu\+Edit@{menu\+Edit}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{menu\+Edit}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Menu$\ast$ cdc\+Main\+Window\+::menu\+Edit\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a0d41f03c46c693ee6a4d82b807aaca6b}
+
+
+Definition at line 82 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_a10261cfc57f6d2f7dc8d69c449ded903}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!menu\+File@{menu\+File}}
+\index{menu\+File@{menu\+File}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{menu\+File}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Menu$\ast$ cdc\+Main\+Window\+::menu\+File\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a10261cfc57f6d2f7dc8d69c449ded903}
+
+
+Definition at line 81 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_a8ad1d65233c7c537387d633e73693fb2}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!menu\+Help@{menu\+Help}}
+\index{menu\+Help@{menu\+Help}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{menu\+Help}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Menu$\ast$ cdc\+Main\+Window\+::menu\+Help\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a8ad1d65233c7c537387d633e73693fb2}
+
+
+Definition at line 83 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_aff43f7f9a42d9aaa9f468acc48399cc2}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!menu\+View@{menu\+View}}
+\index{menu\+View@{menu\+View}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{menu\+View}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Menu$\ast$ cdc\+Main\+Window\+::menu\+View\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_aff43f7f9a42d9aaa9f468acc48399cc2}
+
+
+Definition at line 84 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_ad2f451768cf6b6d2d2e828a0598a7b67}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!plain\+Text\+Editor@{plain\+Text\+Editor}}
+\index{plain\+Text\+Editor@{plain\+Text\+Editor}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{plain\+Text\+Editor}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Text\+Edit$\ast$ cdc\+Main\+Window\+::plain\+Text\+Editor\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_ad2f451768cf6b6d2d2e828a0598a7b67}
+
+
+Definition at line 75 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_a2ab9ee82b6b3a303bfecaa9f477f8595}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!pw@{pw}}
+\index{pw@{pw}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{pw}]{\setlength{\rightskip}{0pt plus 5cm}{\bf project\+Worker}$\ast$ cdc\+Main\+Window\+::pw\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a2ab9ee82b6b3a303bfecaa9f477f8595}
+
+
+Definition at line 64 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_a5d1a9fb552d49501601e0f815e1205f0}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!toolbar\+File@{toolbar\+File}}
+\index{toolbar\+File@{toolbar\+File}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{toolbar\+File}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Tool\+Bar$\ast$ cdc\+Main\+Window\+::toolbar\+File\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a5d1a9fb552d49501601e0f815e1205f0}
+
+
+Definition at line 74 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_a5adfe51057f2e53feddc1367cf50609e}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!tree\+Project@{tree\+Project}}
+\index{tree\+Project@{tree\+Project}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{tree\+Project}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Tree\+View$\ast$ cdc\+Main\+Window\+::tree\+Project\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a5adfe51057f2e53feddc1367cf50609e}
+
+
+Definition at line 79 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_a9b0360abdaa43b49ba788baf4dab83fa}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!web\+View@{web\+View}}
+\index{web\+View@{web\+View}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{web\+View}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Web\+View$\ast$ cdc\+Main\+Window\+::web\+View\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a9b0360abdaa43b49ba788baf4dab83fa}
+
+
+Definition at line 78 of file cdcmainwindow.\+h.
+
+\hypertarget{classcdc_main_window_a1ca58eeaa25a25ef5f1dbc6772d0853a}{\index{cdc\+Main\+Window@{cdc\+Main\+Window}!window\+Title@{window\+Title}}
+\index{window\+Title@{window\+Title}!cdc\+Main\+Window@{cdc\+Main\+Window}}
+\subsubsection[{window\+Title}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String cdc\+Main\+Window\+::window\+Title\hspace{0.3cm}{\ttfamily [private]}}}\label{classcdc_main_window_a1ca58eeaa25a25ef5f1dbc6772d0853a}
+
+
+Definition at line 73 of file cdcmainwindow.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/martin/\+Workspaces/qt/crossdocs\+\_\+gui/\hyperlink{cdcmainwindow_8h}{cdcmainwindow.\+h}\item 
+/\+Users/martin/\+Workspaces/qt/crossdocs\+\_\+gui/\hyperlink{cdcmainwindow_8cpp}{cdcmainwindow.\+cpp}\end{DoxyCompactItemize}

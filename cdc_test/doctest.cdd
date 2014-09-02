@@ -1,0 +1,10 @@
+document:
+doctest.cdd
+
+name:
+Test Document
+
+input_files:
+./doctestpage.cdp
+./doc/otherpage.cdp
+

@@ -1,0 +1,213 @@
+\hypertarget{classconfiguration_file_parser}{\section{configuration\+File\+Parser Class Reference}
+\label{classconfiguration_file_parser}\index{configuration\+File\+Parser@{configuration\+File\+Parser}}
+}
+
+
+{\ttfamily \#include $<$configurationfileparser.\+h$>$}
+
+
+
+Collaboration diagram for configuration\+File\+Parser\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classconfiguration_file_parser__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classconfiguration_file_parser_a88e1b98b7623b2171754db03844b2f2e}{configuration\+File\+Parser} ()
+\item 
+\hyperlink{classconfiguration_file_parser_ad58b1489837edb4b93a6f9c8ce7c8205}{$\sim$configuration\+File\+Parser} ()
+\item 
+bool \hyperlink{classconfiguration_file_parser_a54096c6c98ac28b99fcf23da24fcec1d}{parse\+File} (Q\+String fpath, \hyperlink{cdcdefs_8h_a7a1ca742b5a041762c1b5784532bd7fd}{C\+D\+C\+\_\+status} $\ast$ret\+Status=N\+U\+L\+L)
+\begin{DoxyCompactList}\small\item\em Parses configuration file in {\itshape fpath}. \end{DoxyCompactList}\item 
+bool \hyperlink{classconfiguration_file_parser_aff72b19dd3fb860a9d0917cbb444a504}{parse\+File} (Q\+Dir fpath, \hyperlink{cdcdefs_8h_a7a1ca742b5a041762c1b5784532bd7fd}{C\+D\+C\+\_\+status} $\ast$ret\+Status=N\+U\+L\+L)
+\begin{DoxyCompactList}\small\item\em Overloads previous definition of parse\+File to deal with {\itshape Q\+Dir} type of inputs. \end{DoxyCompactList}\item 
+Q\+String\+List \hyperlink{classconfiguration_file_parser_a16112cdbdab9ee6ae509aab850697356}{get\+File\+Sections} ()
+\begin{DoxyCompactList}\small\item\em Returns the list with all the commands (strings ending with '\+:') found. \end{DoxyCompactList}\item 
+Q\+String\+List \hyperlink{classconfiguration_file_parser_a7ca368e0b88cc355f69f572b42763938}{get\+Section\+Contents} (Q\+String sec\+Name)
+\begin{DoxyCompactList}\small\item\em Returns the with the contents of a specific section. \end{DoxyCompactList}\item 
+bool \hyperlink{classconfiguration_file_parser_ad2e01512b0a5454c0e719982b30699f6}{save\+To\+Configuration\+File} (Q\+String filename, \hyperlink{cdcdefs_8h_adfd872d2c7ac9d9182576c76af28ea98}{C\+D\+C\+\_\+conf\+List} sections)
+\begin{DoxyCompactList}\small\item\em Saves {\itshape sections} to {\itshape filename} according to C\+D\+C's syntax. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+File $\ast$ \hyperlink{classconfiguration_file_parser_a699c9d49daf1310225c672e070b93960}{file}
+\begin{DoxyCompactList}\small\item\em Current file being handled. \end{DoxyCompactList}\item 
+Q\+Text\+Stream $\ast$ \hyperlink{classconfiguration_file_parser_ad85b3428033be9a146b3f35a31b2f756}{file\+In}
+\begin{DoxyCompactList}\small\item\em Text stream of the current file handle. \end{DoxyCompactList}\item 
+Q\+List$<$ \hyperlink{struct_c_d_c__conf_section}{C\+D\+C\+\_\+conf\+Section} $>$ \hyperlink{classconfiguration_file_parser_a87df99e40e77025aa5a3d9b9f79d7be9}{conf\+File\+Sections}
+\begin{DoxyCompactList}\small\item\em List of type \hyperlink{struct_c_d_c__conf_section}{C\+D\+C\+\_\+conf\+Section} containing the sections of the read document. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 46 of file configurationfileparser.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classconfiguration_file_parser_a88e1b98b7623b2171754db03844b2f2e}{\index{configuration\+File\+Parser@{configuration\+File\+Parser}!configuration\+File\+Parser@{configuration\+File\+Parser}}
+\index{configuration\+File\+Parser@{configuration\+File\+Parser}!configuration\+File\+Parser@{configuration\+File\+Parser}}
+\subsubsection[{configuration\+File\+Parser}]{\setlength{\rightskip}{0pt plus 5cm}configuration\+File\+Parser\+::configuration\+File\+Parser (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classconfiguration_file_parser_a88e1b98b7623b2171754db03844b2f2e}
+
+
+Definition at line 27 of file configurationfileparser.\+cpp.
+
+\hypertarget{classconfiguration_file_parser_ad58b1489837edb4b93a6f9c8ce7c8205}{\index{configuration\+File\+Parser@{configuration\+File\+Parser}!````~configuration\+File\+Parser@{$\sim$configuration\+File\+Parser}}
+\index{````~configuration\+File\+Parser@{$\sim$configuration\+File\+Parser}!configuration\+File\+Parser@{configuration\+File\+Parser}}
+\subsubsection[{$\sim$configuration\+File\+Parser}]{\setlength{\rightskip}{0pt plus 5cm}configuration\+File\+Parser\+::$\sim$configuration\+File\+Parser (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classconfiguration_file_parser_ad58b1489837edb4b93a6f9c8ce7c8205}
+
+
+Definition at line 29 of file configurationfileparser.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classconfiguration_file_parser_a16112cdbdab9ee6ae509aab850697356}{\index{configuration\+File\+Parser@{configuration\+File\+Parser}!get\+File\+Sections@{get\+File\+Sections}}
+\index{get\+File\+Sections@{get\+File\+Sections}!configuration\+File\+Parser@{configuration\+File\+Parser}}
+\subsubsection[{get\+File\+Sections}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String\+List configuration\+File\+Parser\+::get\+File\+Sections (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classconfiguration_file_parser_a16112cdbdab9ee6ae509aab850697356}
+
+
+Returns the list with all the commands (strings ending with '\+:') found. 
+
+
+
+Definition at line 140 of file configurationfileparser.\+cpp.
+
+\hypertarget{classconfiguration_file_parser_a7ca368e0b88cc355f69f572b42763938}{\index{configuration\+File\+Parser@{configuration\+File\+Parser}!get\+Section\+Contents@{get\+Section\+Contents}}
+\index{get\+Section\+Contents@{get\+Section\+Contents}!configuration\+File\+Parser@{configuration\+File\+Parser}}
+\subsubsection[{get\+Section\+Contents}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String\+List configuration\+File\+Parser\+::get\+Section\+Contents (
+\begin{DoxyParamCaption}
+\item[{Q\+String}]{sec\+Name}
+\end{DoxyParamCaption}
+)}}\label{classconfiguration_file_parser_a7ca368e0b88cc355f69f572b42763938}
+
+
+Returns the with the contents of a specific section. 
+
+Returns an empty list if the section does not exist or has no contents. 
+
+Definition at line 147 of file configurationfileparser.\+cpp.
+
+\hypertarget{classconfiguration_file_parser_a54096c6c98ac28b99fcf23da24fcec1d}{\index{configuration\+File\+Parser@{configuration\+File\+Parser}!parse\+File@{parse\+File}}
+\index{parse\+File@{parse\+File}!configuration\+File\+Parser@{configuration\+File\+Parser}}
+\subsubsection[{parse\+File}]{\setlength{\rightskip}{0pt plus 5cm}bool configuration\+File\+Parser\+::parse\+File (
+\begin{DoxyParamCaption}
+\item[{Q\+String}]{fpath, }
+\item[{{\bf C\+D\+C\+\_\+status} $\ast$}]{ret\+Status = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}}\label{classconfiguration_file_parser_a54096c6c98ac28b99fcf23da24fcec1d}
+
+
+Parses configuration file in {\itshape fpath}. 
+
+To implement the read operation of the configuration file in a flexible fashion, a very simple finite state machine is implemented. Four states are possible\+:
+\begin{DoxyItemize}
+\item {\bfseries idle\+:} Starting state; corresponds to reading an empty line or comment;
+\item {\bfseries at-\/header}\+: Found a line with a single string (not whitespace-\/separated) that ends with '\+:'
+\item {\bfseries at-\/argument}\+: After finding at least one header (command), found a line with a single string.
+\item {\bfseries fail\+:} Something went wrong. Function returns.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em fpath} & The full path of the file to be parsed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the file was correctly parsed or not. 
+\end{DoxyReturn}
+Finite state machine 
+
+Definition at line 33 of file configurationfileparser.\+cpp.
+
+\hypertarget{classconfiguration_file_parser_aff72b19dd3fb860a9d0917cbb444a504}{\index{configuration\+File\+Parser@{configuration\+File\+Parser}!parse\+File@{parse\+File}}
+\index{parse\+File@{parse\+File}!configuration\+File\+Parser@{configuration\+File\+Parser}}
+\subsubsection[{parse\+File}]{\setlength{\rightskip}{0pt plus 5cm}bool configuration\+File\+Parser\+::parse\+File (
+\begin{DoxyParamCaption}
+\item[{Q\+Dir}]{fpath, }
+\item[{{\bf C\+D\+C\+\_\+status} $\ast$}]{ret\+Status = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classconfiguration_file_parser_aff72b19dd3fb860a9d0917cbb444a504}
+
+
+Overloads previous definition of parse\+File to deal with {\itshape Q\+Dir} type of inputs. 
+
+
+
+Definition at line 68 of file configurationfileparser.\+h.
+
+\hypertarget{classconfiguration_file_parser_ad2e01512b0a5454c0e719982b30699f6}{\index{configuration\+File\+Parser@{configuration\+File\+Parser}!save\+To\+Configuration\+File@{save\+To\+Configuration\+File}}
+\index{save\+To\+Configuration\+File@{save\+To\+Configuration\+File}!configuration\+File\+Parser@{configuration\+File\+Parser}}
+\subsubsection[{save\+To\+Configuration\+File}]{\setlength{\rightskip}{0pt plus 5cm}bool configuration\+File\+Parser\+::save\+To\+Configuration\+File (
+\begin{DoxyParamCaption}
+\item[{Q\+String}]{filename, }
+\item[{{\bf C\+D\+C\+\_\+conf\+List}}]{sections}
+\end{DoxyParamCaption}
+)}}\label{classconfiguration_file_parser_ad2e01512b0a5454c0e719982b30699f6}
+
+
+Saves {\itshape sections} to {\itshape filename} according to C\+D\+C's syntax. 
+
+
+
+Definition at line 158 of file configurationfileparser.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classconfiguration_file_parser_a87df99e40e77025aa5a3d9b9f79d7be9}{\index{configuration\+File\+Parser@{configuration\+File\+Parser}!conf\+File\+Sections@{conf\+File\+Sections}}
+\index{conf\+File\+Sections@{conf\+File\+Sections}!configuration\+File\+Parser@{configuration\+File\+Parser}}
+\subsubsection[{conf\+File\+Sections}]{\setlength{\rightskip}{0pt plus 5cm}Q\+List$<${\bf C\+D\+C\+\_\+conf\+Section}$>$ configuration\+File\+Parser\+::conf\+File\+Sections\hspace{0.3cm}{\ttfamily [private]}}}\label{classconfiguration_file_parser_a87df99e40e77025aa5a3d9b9f79d7be9}
+
+
+List of type \hyperlink{struct_c_d_c__conf_section}{C\+D\+C\+\_\+conf\+Section} containing the sections of the read document. 
+
+
+
+Definition at line 93 of file configurationfileparser.\+h.
+
+\hypertarget{classconfiguration_file_parser_a699c9d49daf1310225c672e070b93960}{\index{configuration\+File\+Parser@{configuration\+File\+Parser}!file@{file}}
+\index{file@{file}!configuration\+File\+Parser@{configuration\+File\+Parser}}
+\subsubsection[{file}]{\setlength{\rightskip}{0pt plus 5cm}Q\+File$\ast$ configuration\+File\+Parser\+::file\hspace{0.3cm}{\ttfamily [private]}}}\label{classconfiguration_file_parser_a699c9d49daf1310225c672e070b93960}
+
+
+Current file being handled. 
+
+
+
+Definition at line 89 of file configurationfileparser.\+h.
+
+\hypertarget{classconfiguration_file_parser_ad85b3428033be9a146b3f35a31b2f756}{\index{configuration\+File\+Parser@{configuration\+File\+Parser}!file\+In@{file\+In}}
+\index{file\+In@{file\+In}!configuration\+File\+Parser@{configuration\+File\+Parser}}
+\subsubsection[{file\+In}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Text\+Stream$\ast$ configuration\+File\+Parser\+::file\+In\hspace{0.3cm}{\ttfamily [private]}}}\label{classconfiguration_file_parser_ad85b3428033be9a146b3f35a31b2f756}
+
+
+Text stream of the current file handle. 
+
+
+
+Definition at line 91 of file configurationfileparser.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/martin/\+Workspaces/qt/crossdocs\+\_\+gui/\hyperlink{configurationfileparser_8h}{configurationfileparser.\+h}\item 
+/\+Users/martin/\+Workspaces/qt/crossdocs\+\_\+gui/\hyperlink{configurationfileparser_8cpp}{configurationfileparser.\+cpp}\end{DoxyCompactItemize}

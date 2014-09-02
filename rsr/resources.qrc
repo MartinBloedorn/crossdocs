@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/copy.png</file>
+        <file>icons/cut.png</file>
+        <file>icons/new.png</file>
+        <file>icons/open.png</file>
+        <file>icons/paste.png</file>
+        <file>icons/save.png</file>
+        <file>icons/gnomeadd.png</file>
+        <file>icons/gnomeexit.png</file>
+        <file>icons/gnomepreferences.png</file>
+        <file>icons/gnomesearchfolder.png</file>
+        <file>icons/gnomesubtract.png</file>
+        <file>icons/gnomecamera.png</file>
+        <file>icons/gnomefullscreen.png</file>
+        <file>images/lena.png</file>
+        <file>images/nullframe.png</file>
+        <file>icons/run.png</file>
+        <file>icons/new_star.png</file>
+    </qresource>
+</RCC>
