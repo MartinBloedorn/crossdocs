@@ -63,6 +63,8 @@ public:
      */
     bool saveInputFile(int index, CDC_status * retStatus = NULL);
 
+    bool saveAllInputFiles(CDC_status * retStatus = NULL);
+
     void setInputFileSyntax(int index, CDC_fileSyntax syntax);
     CDC_fileSyntax getInputFileSyntax(int index);
 
@@ -96,20 +98,26 @@ public:
 
 
     // Getters and setters
-    QString getTag() { return tag; }
-    void setTag(QString value) { tag = value; }
-    QString getName() { return name; }
+    QString getTag()            { return tag;  }
+    void setTag(QString value)  { tag = value; }
+    QString getName()           { return name;  }
     void setName(QString value) { name = value; }
-    QString getConfFilePath() { return cddFilePath; }
+    QString getConfFilePath()           { return cddFilePath;  }
     void setConfFilePath(QString value) { cddFilePath = value; }
-    CDC_buildEngine getBuildEngine() { return buildEngine; }
+    QString getOutputPath()           { return outputPath;  }
+    void setOutputPath(QString value) { outputPath = value; }
+    CDC_buildEngine getBuildEngine()           { return buildEngine;  }
     void setBuildEngine(CDC_buildEngine value) { buildEngine = value; }
+    bool isOk() { return parseOk; }
 
 private:
     QString tag;
     QString name;
     QString cddFilePath;
+    QString outputPath;
     CDC_buildEngine buildEngine;
+
+    bool parseOk; /// True if this document's cdd file was correctly parsed. Not-found IFs won't set this to false.
 
     QString basePath;   /// Relative to the cdd file.
     QFile * cddFile;    /// Configuration file for document.

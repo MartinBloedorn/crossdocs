@@ -11,7 +11,8 @@ SOURCES     += \
             documentworker.cpp \
             inputfileparser.cpp \
             cdchighlighter.cpp \
-            cdccodeeditor.cpp
+            cdccodeeditor.cpp \
+    buildworker.cpp
 
 HEADERS     += \
             projectworker.h \
@@ -21,6 +22,7 @@ HEADERS     += \
             documentworker.h \
             inputfileparser.h \
             cdchighlighter.h \
-            cdccodeeditor.h
+            cdccodeeditor.h \
+    buildworker.h
 
 RESOURCES   += rsr/resources.qrc

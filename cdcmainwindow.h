@@ -17,7 +17,7 @@
   *
   * \todo \b DONE! Fix the logic with the treeView and the fileListWidget (Works, but make it neater!)
   * \todo Add suport to save and restore last window configuration (width, height, etc)
-  * \todo Add the syntax highlighter
+  * \todo \b DONE! Add the syntax highlighter
   * \todo Make the syntax highlighter trigger the window update everytime he runs on a text block. Only update
   *       the tree if a SE keyword match occurs.
   * \todo Add suport to open the last opened projects
@@ -37,6 +37,8 @@
 #include <QStandardItemModel>
 
 #include "projectworker.h"
+#include "buildworker.h"
+
 #include "cdchighlighter.h"
 #include "cdccodeeditor.h"
 
@@ -91,9 +93,9 @@ private:
 
     void updateSyntaxMenu(CDC_fileSyntax syntax);
 
-    projectWorker * pw;
+    projectWorker  * pw;
+    buildWorker    * builder;
     cdcHighlighter * highlighter;
-
 
     QString currentProjectPath;
     QString currentDocumentTag;

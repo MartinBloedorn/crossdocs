@@ -21,14 +21,17 @@
 // Sections for which the parser will look for
 const QString docsecTag            = "document";
 const QString docsecName           = "name";
+const QString docsecBuild          = "build_engine";
 const QString docsecInputFiles     = "input_files";
+const QString docsecOutdir         = "output_directory";
 const CDC_fileSyntax defaultSyntax = CDC_fileSyntax::doxygen;
 
 
 /**************************************** CONSTRUCTOR *******************************************/
 documentWorker::documentWorker(QObject *parent) :
     QObject(parent),
-    buildEngine(CDC_buildEngine::none)
+    buildEngine(CDC_buildEngine::none),
+    parseOk(false)
 {
     fp        = new configurationFileParser();
     infp      = new inputFileParser();
@@ -53,6 +56,7 @@ bool documentWorker::configureDocument(QString docConfPath, CDC_status *retStatu
     cddFile = new QFile(cddFilePath);
     // Clean everything that might be from other parse
     inputFiles.clear();
+    parseOk = false;
 
     QDir dir(cddFilePath);
     basePath = QString(cddFilePath);
@@ -87,6 +91,13 @@ bool documentWorker::configureDocument(QString docConfPath, CDC_status *retStatu
         return false;
     }
     tag = tempTag[0];
+
+    // Get output directory for document (optional)
+    tempTag = fp->getSectionContents(docsecOutdir);
+    if(tempTag.isEmpty())
+        qWarning() << QString(__FUNCTION__) << "No " << docsecOutdir << " section in " << cddFilePath;
+    else
+        outputPath = tempTag[0];
 
     // Get build engine for document (optional)
 
@@ -133,6 +144,7 @@ bool documentWorker::configureDocument(QString docConfPath, CDC_status *retStatu
     else
         name = tempTag[0];
 
+    parseOk = true;
     return true;
 }
 
@@ -188,6 +200,13 @@ bool documentWorker::saveInputFile(int index, CDC_status * retStatus) {
         in << inputFiles[index].contents;
         inputFiles[index].file->close();
     }
+    return true;
+}
+
+bool documentWorker::saveAllInputFiles(CDC_status *retStatus) {
+    for(int i = 0; i < inputFiles.length(); ++i)
+        if(!saveInputFile(i, retStatus))
+            return false;
     return true;
 }
 

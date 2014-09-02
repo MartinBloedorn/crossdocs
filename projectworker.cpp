@@ -128,6 +128,7 @@ QStandardItemModel * projectWorker::getProjectStructure() {
     for (int i = 0; i < project.documents.length(); ++i)
         if(project.documents[i]->getDocumentStructure()->columnCount() > 0)
             structure->invisibleRootItem()->appendRow(project.documents[i]->getDocumentStructure()->takeColumn(0));
+    structure->setHorizontalHeaderLabels(QStringList() << project.name);
     return structure;
 }
 

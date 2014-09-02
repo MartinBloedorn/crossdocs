@@ -46,6 +46,8 @@ cdcMainWindow::cdcMainWindow(QWidget *parent) :
     highlighter = new cdcHighlighter(plainTextEditor->document());
     highlighter->setSyntax(CDC_fileSyntax::doxygen);
 
+    builder = new buildWorker();
+
     setWindowTitle(windowTitle);
     setUnifiedTitleAndToolBarOnMac(true);
 }
@@ -221,7 +223,7 @@ void cdcMainWindow::projectTreeItemCollapsed(QModelIndex index) {
     for(int i = 0; i < expandedProjectTreeItems.length(); ++i) {
        if(expandedProjectTreeItems[i].doc.compare(doc) == 0) {
            expandedProjectTreeItems[i].tags.removeAll(tag);
-           qDebug() << "Removed " << tag << " in document " << doc;
+           //qDebug() << "Removed " << tag << " in document " << doc;
            return;
        }
     }
