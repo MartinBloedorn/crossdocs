@@ -20,9 +20,7 @@
 
 #include <QDebug>
 
-//#include "projectworker.h"
 #include "cdcmainwindow.h"
-//#include "configurationfileparser.h"
 #include "inputfileparser.h"
 
 cdcMainWindow * mainWindow;
@@ -46,16 +44,8 @@ int main(int argc, char * argv[])
     qDebug() << "CrossDocs GUI started sucessfully!";
     mainWindow->openProject("/Users/martin/Workspaces/qt/crossdocs_gui/cdc_test/testconf.cdc");
 
-    //if(argc > 1)
-        //mainWindow->openProject(argv[1]);
-
-    //inputFileParser * ifparser = new inputFileParser();
-    //ifparser->setSyntax(CDC_fileSyntax::doxygen);
-    //ifparser->parseInputFile(new QFile("/Users/martin/Workspaces/qt/crossdocs_gui/cdc_test/doctestpage.cdp"));
-
-    //projectWorker pw;
-    //pw.configureProject("/Users/martin/Workspaces/qt/crossdocs_gui/cdc_test/testconf.cdc");
+    if(argc > 1)
+        mainWindow->openProject(argv[1]);
 
     return app.exec();
-    //return 0;
 }

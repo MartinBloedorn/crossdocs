@@ -1,2 +1,9 @@
 #ignore this annoyng MacOS thingies
 *.DS_Store
+
+#ignore QtDesigner's  user files
+*.pro.user
+
+#ignore generated html or latex from doxygen
+./doc/html
+./doc/latex
