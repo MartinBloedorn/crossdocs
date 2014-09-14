@@ -31,8 +31,12 @@
 #include <QStandardItemModel>
 
 #include "cdcdefs.h"
+
 #include "configurationfileparser.h"
 #include "documentworker.h"
+
+#include "abstractbuilder.h"
+#include "doxygenbuilder.h"
 
 class projectWorker : public QObject
 {
@@ -74,6 +78,8 @@ public:
      */
     void    setDocumentInputFileContents(QString doctag, int ifIndex, QString content, CDC_status *retStatus = NULL);
 
+    QString getDocumentOutputFolder(QString doctag) { return getDocumentbyTag(doctag)->getOutputPath(); }
+
     void    setDocumentInputFileSyntax(QString doctag, int ifIndex, CDC_fileSyntax syntax);
     CDC_fileSyntax getDocumentInputFileSyntax(QString doctag, int ifIndex);
 
@@ -92,8 +98,11 @@ private:
     QString basePath;
     QStandardItemModel * structure;
 
+    QString workFolderPath;
+
     configurationFileParser * fp;
-    documentWorker * docw;
+    documentWorker  * docw;
+    abstractBuilder * builder;
 
     /// \brief Struct that contains the current project's params. Only one prj at a time.
     struct {

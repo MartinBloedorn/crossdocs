@@ -1,4 +1,7 @@
-\section sectag This is a section
+
+\mainpage Some Main Page of satan lol
+
+\section sectag This is a section that can be helpful
 
 Lorem ipsum dolor sit amet, dictas concludaturque vis ut, mel no minim posidonium, ancillae deseruisse no eos. 
 Duo an vero oporteat. Id elitr persius definiebas sit, no his enim nihil consul. 
@@ -9,18 +12,18 @@ animal vivendum eam ei. Ut sit alii omittam gloriatur, vel ei tantas accumsan, d
 
 Sea ne reque zril placerat, est enim modus delicatissimi in. Ea erat simul nec. Usu nostro pericula elaboraret id, 
 
-\paragraph invalidp Invalid paragraph
-
 \subsection yetanother lol
 
-\section testtag This has 2 numbers!
+\subsubsection gottatry This has
+
+\section testtag This has 2 numbers! Or more
 
 eum nobis ceteros ea, eum no dolore euismod. Sit tollit ponderum abhorreant ut, putent inermis ex ius. Pri ad meliore rationibus, 
 qui no scaevola indoctum ocurreret, aliquando mnesarchum mei et.
 
 \subsection subsectag Some subsection
 
-With some text
+With some text hashaahah
 
 \subsubsection ssss lorem ipsum
 
@@ -30,4 +33,4 @@ With some text
 
 And then a
 
-\paragraph ololo hehe 
+

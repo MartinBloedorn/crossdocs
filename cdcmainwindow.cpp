@@ -46,10 +46,10 @@ cdcMainWindow::cdcMainWindow(QWidget *parent) :
     highlighter = new cdcHighlighter(plainTextEditor->document());
     highlighter->setSyntax(CDC_fileSyntax::doxygen);
 
-    builder = new buildWorker();
+    //builder = new buildWorker();
 
     setWindowTitle(windowTitle);
-    setUnifiedTitleAndToolBarOnMac(true);
+    setUnifiedTitleAndToolBarOnMac(true);    
 }
 
 cdcMainWindow::~cdcMainWindow() {
@@ -82,23 +82,29 @@ void cdcMainWindow::menuSyntaxTriggered(QAction *selectedSyntax) {
 }
 
 void cdcMainWindow::requestBuild() {
-    qDebug() << QString(__FUNCTION__) << " Request build";
+//    qDebug() << QString(__FUNCTION__) << " Request build";
 
-    QString filename("/Users/martin/Git/provant-software/io-board/stm32f4/app/remote-controlled-flight/doc/html/index.html");
-    QFile file(filename);
+//    QString filename("/Users/martin/Git/provant-software/io-board/stm32f4/app/remote-controlled-flight/doc/html/index.html");
+//    QFile file(filename);
 
-    if (!file.open(QIODevice::ReadOnly)) {
-        QMessageBox::information(this, tr("Unable to open file"),
-            file.errorString());
-        return;
-    }
+//    if (!file.open(QIODevice::ReadOnly)) {
+//        QMessageBox::information(this, tr("Unable to open file"),
+//            file.errorString());
+//        return;
+//    }
 
-    QTextStream out(&file);
-    QString output = out.readAll();
+//    QTextStream out(&file);
+//    QString output = out.readAll();
 
-    // display contents
-    plainTextEditor->setPlainText(output);
-    webView->setHtml(output, QUrl::fromLocalFile(filename));
+//    // display contents
+//    plainTextEditor->setPlainText(output);
+//    webView->setHtml(output, QUrl::fromLocalFile(filename));
+
+    pw->setDocumentInputFileContents(currentDocumentTag, currentDocumentInputFileIndex, plainTextEditor->toPlainText());
+    //connect(pw->getBuilderHandle(), SIGNAL(buildFinished(QString,QString)), this, SLOT(updateView(QString,QString)));
+    pw->build("");
+    updateView("", pw->getDocumentOutputFolder(currentDocumentTag));
+
 }
 
 void cdcMainWindow::open() {
@@ -146,6 +152,24 @@ void cdcMainWindow::loadProject() {
         treeProject->selectionModel()->select(treeProject->indexAt(QPoint(0,0)), QItemSelectionModel::Select);
         projectTreeItemSelected(treeProject->model()->index(0,0));
     }
+}
+
+void cdcMainWindow::updateView(QString doctag, QString outfile) {
+    outfile.append("/html/index.html");
+    QFile file(outfile);
+
+    if (!file.open(QIODevice::ReadOnly)) {
+        QMessageBox::information(this, tr("Unable to open file"),
+            file.errorString());
+        return;
+    }
+
+    QString output = file.readAll();
+    file.close();
+
+    // display contents
+    webView->setHtml(output, QUrl::fromLocalFile(outfile));
+    webView->reload();
 }
 
 void cdcMainWindow::createNew() {

@@ -37,7 +37,6 @@
 #include <QStandardItemModel>
 
 #include "projectworker.h"
-#include "buildworker.h"
 
 #include "cdchighlighter.h"
 #include "cdccodeeditor.h"
@@ -55,6 +54,7 @@ signals:
 public slots: 
     void messageHandler(QtMsgType type, const char *msg, bool isDialog);
     void openProject(QString fileName = "");
+    void updateView(QString doctag, QString outfile);
 
 private slots:
     void menuActionAbout();
@@ -94,7 +94,7 @@ private:
     void updateSyntaxMenu(CDC_fileSyntax syntax);
 
     projectWorker  * pw;
-    buildWorker    * builder;
+
     cdcHighlighter * highlighter;
 
     QString currentProjectPath;

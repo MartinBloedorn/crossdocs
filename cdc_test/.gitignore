@@ -1,0 +1,2 @@
+# Ignore the .cdc file that the application generates
+.cdc

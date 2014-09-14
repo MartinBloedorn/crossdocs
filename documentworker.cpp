@@ -94,8 +94,10 @@ bool documentWorker::configureDocument(QString docConfPath, CDC_status *retStatu
 
     // Get output directory for document (optional)
     tempTag = fp->getSectionContents(docsecOutdir);
-    if(tempTag.isEmpty())
+    if(tempTag.isEmpty()) {
         qWarning() << QString(__FUNCTION__) << "No " << docsecOutdir << " section in " << cddFilePath;
+        outputPath = basePath;
+    }
     else
         outputPath = tempTag[0];
 

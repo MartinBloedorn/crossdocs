@@ -5,8 +5,8 @@
 *.pro.user
 
 #ignore generated html or latex from doxygen
-./doc/html
-./doc/latex
+doc/html
+doc/latex
 
 #ignore the root build file
 ./build

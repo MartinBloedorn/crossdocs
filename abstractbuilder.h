@@ -9,7 +9,7 @@
   *
   *****************************************************************************
   *
-  * @file    buildworker.h
+  * @file    abstractbuilder.h
   * @author  Martin Vincent Bloedorn
   * @version V0.1.0
   * @date    02-September-2014
@@ -20,25 +20,33 @@
 #define BUILDWORKER_H
 
 #include <QObject>
+#include <QProcess>
 
 #include "cdcdefs.h"
 #include "documentworker.h"
 
-class buildWorker : public QObject
+class abstractBuilder : public QObject
 {
     Q_OBJECT
 public:
-    buildWorker(QObject *parent = 0);
-    ~buildWorker();
+    virtual ~abstractBuilder();
 
-    bool buildDocument(documentWorker * doc, CDC_status * retStatus = NULL);
+    virtual bool buildDocument(documentWorker * doc, CDC_status * retStatus = NULL) = 0;
+
+    // Inheritable getters and setters
+    void setWorkFolder(QString path) { workFolderPath = path; }
+    QString getWorkFolder() { return workFolderPath; }
+
+    void setProjectName(QString name) { projectName = name; }
 
 signals:
+    void buildFinished(QString doctag, QString outfile);
 
 public slots:
 
 private:
-    documentWorker * document;
+    QString workFolderPath;
+    QString projectName;
 };
 
 #endif // BUILDWORKER_H

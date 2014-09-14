@@ -1,0 +1,5 @@
+/* Use the following segments to resize an image in Doxygen's HTML output */ 
+
+div.image img[src="crossdocs_structure_diagram.png"]{ 
+    width:800px; 
+}

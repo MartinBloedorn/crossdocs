@@ -12,7 +12,8 @@ SOURCES     += \
             inputfileparser.cpp \
             cdchighlighter.cpp \
             cdccodeeditor.cpp \
-    buildworker.cpp
+            abstractbuilder.cpp \
+    doxygenbuilder.cpp
 
 HEADERS     += \
             projectworker.h \
@@ -23,6 +24,11 @@ HEADERS     += \
             inputfileparser.h \
             cdchighlighter.h \
             cdccodeeditor.h \
-    buildworker.h
+            abstractbuilder.h \
+    doxygenbuilder.h
 
 RESOURCES   += rsr/resources.qrc
+
+OTHER_FILES += \
+    doc/pages.dox \
+    doc/Doxyfile

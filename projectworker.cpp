@@ -116,6 +116,10 @@ bool projectWorker::configureProject(QString prjconffile, CDC_status *retStatus)
                 return false;
             }
 
+        // Create Work folder
+        workFolderPath = basePath + ".cdc/";
+        dir.mkdir(workFolderPath);
+
         return true;
     }
     else
@@ -133,7 +137,7 @@ QStandardItemModel * projectWorker::getProjectStructure() {
 }
 
 bool projectWorker::build(QString prjconffile, CDC_status *retStatus) {
-    QString cmd("/usr/local/bin/doxygen");
+/*   QString cmd("/usr/local/bin/doxygen");
     QStringList args;
 
     args << "-g";
@@ -145,7 +149,13 @@ bool projectWorker::build(QString prjconffile, CDC_status *retStatus) {
     QString StdError = process->readAllStandardError();   //Reads standard error
 
     std::cout << StdOut.toStdString() << std::endl;
+*/
+    builder = new doxygenBuilder();
 
+    builder->setWorkFolder(workFolderPath);
+    builder->buildDocument(project.documents[1]);
+
+    delete builder;
     return true;
 }
 
@@ -195,9 +205,11 @@ QStringList projectWorker::getDocumentTagList() {
 // PRIVATE ------------------------------------------------------------------------
 bool projectWorker::configureAllDocuments() {
     bool retval = true;
-    for(int i = 0; i < project.documents.length(); ++i)
+    for(int i = 0; i < project.documents.length(); ++i) {
         if(!project.documents[i]->configureDocument())
             retval = false;
+        project.documents[i]->setOutputPath(workFolderPath + project.documents[i]->getTag());
+    }
     return retval;
 }
 

@@ -1,0 +1,105 @@
+/*!
+\mainpage CrossDocs GUI
+
+\section mp_intro Introduction
+
+This page describes the structure of the program and the features for each part of it.
+
+\subsection mp_intro_naming Nomenclature
+
+\subsubsection mp_intro_naming_general General Naming Conventions
+
+To maintain consistency, some names and expressions are defined in the following table. Everytime they pop up in this
+document, they mean what is described in this table.
+
+| Expression/Name | Meaning |
+|-----------------|---------|
+| Project | Collection of documents and resources that can produce multiple outputs collections |
+| Document | Object in a project. Is a collection of input files and configuration informations. |
+| Input File | File in the filesystem. It's a part of a document (or multiple at a time), and gets parsed into ouput. |
+| Project folder | Folder where the project's configuration file lies. |
+| Work folder | Hidden folder, created by the application, where all the invocation of external parsers happens. Is within the Project Folder |
+| Document folder | Folder where a document's configuration file lies. |
+
+
+\subsubsection mp_intro_naming_status Features Statues
+
+The status of a feature can fit the following states:
+
+| Status name  | Status Description | Short Notation |
+|--------------|--------------------|----------------|
+| \b Ok        | Feature is implemented and ready. | Ok |
+| \b Available | Feature exists, works, but is limited | A |
+| \b Incomplete | Feature is being developed, and still doesn't work as desired. | I |
+| \b Planned    | Feature exists only in an imaginary realm. | P |
+
+\section mp_strucutre Program structure
+
+CrossDocs is structured in the following \b modules:
+
+\image html crossdocs_structure_diagram.png "CrossDocs structural diagram" width=12cm
+
+Their functionality is explained in the following subsections.
+
+\subsection mp_structure_fileparser CDC Configuration File Parser
+
+Reads files \b CDC configuration files. Those files are structured as follows:
+
+\code{.sh}
+# full line comments starting with a '#'
+
+atag:
+contents
+of the section
+
+another_tag:
+foo
+bar
+baz
+\endcode
+
+After processing such file, two \b QStringLists will be created, one named \em atag , and containing
+<em>contents, of the section</em>; the other named \em another_tag , containing <em>foor, bar, baz</em>.
+
+Sections must always end in a ' \b : ' .
+
+<b>Feature listing:</b>
+
+| Feature | Description | Status |
+|---------|-------------|--------|
+| Full-line comments | Lines that START with \b # are ignored by the parser.  | Ok |
+| Inline comments | If a # is found after a \b section: or content, the block is ignored. | P |
+| Recursive parsing | Include an external configuration file that gets parsed. | A<sup>1</sup> |
+
+
+<sup>1</sup>: All Document configuration files have to be included as external documents (.cdd files)
+
+
+\subsection mp_structure_guimainwindow CDC GUI Main Window
+
+Displays current files; highlights syntax keywords, etc. Pretty self-explanatory.
+
+| Feature | Description | Status |
+|---------|-------------|--------|
+| Syntax highlighting. | Color marking of syntax keywords and tags.  | A |
+| Reload button | Button that forces project to be reloaded (in case of configurations changes).  | I |
+| Left click document editing | Left click a document title to edit its .cdd file | P |
+| Left click project editing | Left click the project title to edit its .cdc file | P |
+| Resource viewer | Some sort of visualization of the resources available to the project | P |
+| Left click resource editing | Left click the resource view to text-edit it. | P |
+| Auto-completion | Suggest or use some shortcut to auto complete tags and commands | P |
+
+\subsection mp_structure_projectworker CDC Project Worker
+
+\subsection mp_structure_documentworker CDC Document Worker
+
+\subsection mp_structure_resourceworker CDC Resource Worker
+
+<b>THIS IS STILL PLANNED, no implementation!</b>
+
+After the \ref mp_structure_fileparser runs the main configuration file, it triggers the CDC Resource Worker
+to parse the resource file. There can be a global resource file, that sets resources to all project, and
+local resource files for each document.
+
+**/
+

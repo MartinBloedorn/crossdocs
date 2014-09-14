@@ -1,4 +1,6 @@
-\section anotherpagetext The section on another file!
+\page another some page is cool
+
+\section anotherpagetext The section on another file! lalalal
 
 Another page`s text.
 
@@ -7,3 +9,7 @@ Another page`s text.
 lalalalalal
 
 \section Funnysec Funny section! 
+
+Adding some text here.
+
+HAHAHAH
