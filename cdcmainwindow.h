@@ -64,6 +64,7 @@ private slots:
     void open();
     void loadProject();
     void createNew();
+    void saveCurrentFile();
     void textEditorChanged();
     void updateProjectView();
 
@@ -128,6 +129,7 @@ private:
     QAction     *actionExit;
     QAction     *actionOpen;
     QAction     *actionOpenProject;
+    QAction     *actionSave;
     QAction     *actionNew;
     QAction     *actionBuild;
     QAction     *actionTest;

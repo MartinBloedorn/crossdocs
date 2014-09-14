@@ -137,25 +137,14 @@ QStandardItemModel * projectWorker::getProjectStructure() {
 }
 
 bool projectWorker::build(QString prjconffile, CDC_status *retStatus) {
-/*   QString cmd("/usr/local/bin/doxygen");
-    QStringList args;
 
-    args << "-g";
+    //builder = new doxygenBuilder();
 
-    process->start(cmd, args, QIODevice::ReadOnly);
-    process->waitForFinished();
+    std::shared_ptr<abstractBuilder> pbuilder (new doxygenBuilder());
 
-    QString StdOut   = process->readAllStandardOutput();  //Reads standard output
-    QString StdError = process->readAllStandardError();   //Reads standard error
+    pbuilder->setWorkFolder(workFolderPath);
+    pbuilder->buildDocument(project.documents[1]);
 
-    std::cout << StdOut.toStdString() << std::endl;
-*/
-    builder = new doxygenBuilder();
-
-    builder->setWorkFolder(workFolderPath);
-    builder->buildDocument(project.documents[1]);
-
-    delete builder;
     return true;
 }
 
@@ -175,6 +164,14 @@ void projectWorker::setDocumentInputFileContents(QString doctag, int ifIndex, QS
                 project.documents[i]->setInputFileContents(index, content, retStatus);
         }
     }
+}
+
+bool projectWorker::documentInputFileIsModified(QString doctag, int ifIndex) {
+    return getDocumentbyTag(doctag)->isModified(ifIndex);
+}
+
+bool projectWorker::saveDocumentInputFile(QString doctag, int ifIndex, CDC_status *retStatus) {
+    return getDocumentbyTag(doctag)->saveInputFile(ifIndex, retStatus);
 }
 
 void projectWorker::setDocumentInputFileSyntax(QString doctag, int ifIndex, CDC_fileSyntax syntax) {

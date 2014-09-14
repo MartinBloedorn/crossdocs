@@ -22,6 +22,7 @@
 const QString syntaxnameDoxygen   = "Doxygen";
 const QString syntaxnameMarkdown  = "Markdown";
 const QString syntaxnameNone      = "None";
+const QString applicatioName      = "CrossDocs GUI";
 
 /**************************************** CONSTRUCTOR *******************************************/
 cdcMainWindow::cdcMainWindow(QWidget *parent) :
@@ -29,7 +30,7 @@ cdcMainWindow::cdcMainWindow(QWidget *parent) :
     currentDocumentTag(""),
     currentDocumentInputFileIndex(-1),
     analysisThreshold(0),
-    windowTitle(QString("CrossDocs GUI"))
+    windowTitle(applicatioName)
 {
     pw = new projectWorker();
 
@@ -100,8 +101,7 @@ void cdcMainWindow::requestBuild() {
 //    plainTextEditor->setPlainText(output);
 //    webView->setHtml(output, QUrl::fromLocalFile(filename));
 
-    pw->setDocumentInputFileContents(currentDocumentTag, currentDocumentInputFileIndex, plainTextEditor->toPlainText());
-    //connect(pw->getBuilderHandle(), SIGNAL(buildFinished(QString,QString)), this, SLOT(updateView(QString,QString)));
+    saveCurrentFile();
     pw->build("");
     updateView("", pw->getDocumentOutputFolder(currentDocumentTag));
 
@@ -157,26 +157,40 @@ void cdcMainWindow::loadProject() {
 void cdcMainWindow::updateView(QString doctag, QString outfile) {
     outfile.append("/html/index.html");
     QFile file(outfile);
-
-    if (!file.open(QIODevice::ReadOnly)) {
-        QMessageBox::information(this, tr("Unable to open file"),
-            file.errorString());
+    if(!file.exists())
         return;
-    }
 
-    QString output = file.readAll();
-    file.close();
+    //if(webView->url().operator ==(QUrl::fromLocalFile(outfile)))
+    //    qDebug() << "On same QUrl!";
 
-    // display contents
-    webView->setHtml(output, QUrl::fromLocalFile(outfile));
+    webView->load(QUrl::fromLocalFile(outfile));
     webView->reload();
+
 }
 
 void cdcMainWindow::createNew() {
 
 }
 
+void cdcMainWindow::saveCurrentFile() {
+    pw->setDocumentInputFileContents(currentDocumentTag, currentDocumentInputFileIndex, plainTextEditor->toPlainText());
+
+    if(pw->saveDocumentInputFile(currentDocumentTag, currentDocumentInputFileIndex)) {
+        if(windowTitle[windowTitle.length()-1] == '*') {
+            windowTitle.truncate(windowTitle.length()-1);
+            setWindowTitle(windowTitle);
+        }
+        qDebug() << "Sucessfully saved " << pw->getDocumentInputFilesList(currentDocumentTag)[currentDocumentInputFileIndex];
+    }
+    else
+        qWarning() << "Failed to save "  << pw->getDocumentInputFilesList(currentDocumentTag)[currentDocumentInputFileIndex];
+}
+
 void cdcMainWindow::textEditorChanged() {
+    if(windowTitle[windowTitle.length()-1] != '*') {
+        windowTitle.append("*");
+        setWindowTitle(windowTitle);
+    }
     analysisThreshold++;
     if(analysisThreshold > 10) {
         analysisThreshold = 0;
@@ -287,6 +301,10 @@ void cdcMainWindow::projectTreeItemSelected(QModelIndex index) {
             plainTextEditor->setEnabled(true);
             plainTextEditor->setText(pw->getDocumentInputFileContents(selectedTag, 0));
             updateSyntaxMenu(pw->getDocumentInputFileSyntax(selectedTag,0));
+            windowTitle = applicatioName + " - " + pw->getDocumentInputFilesList(selectedTag)[0];
+            if(pw->documentInputFileIsModified(selectedTag,0))
+                windowTitle.append("*");
+            setWindowTitle(windowTitle);
         }
         else {
             plainTextEditor->setText(QString(""));
@@ -314,6 +332,10 @@ void cdcMainWindow::projectTreeItemSelected(QModelIndex index) {
             plainTextEditor->setEnabled(true);
             plainTextEditor->setText(pw->getDocumentInputFileContents(selectedDoc, selectedIndex));
             updateSyntaxMenu(pw->getDocumentInputFileSyntax(selectedDoc,selectedIndex));
+            windowTitle = applicatioName + " - " + pw->getDocumentInputFilesList(selectedDoc)[selectedIndex];
+            if(pw->documentInputFileIsModified(selectedDoc, selectedIndex))
+                windowTitle.append("*");
+            setWindowTitle(windowTitle);
         }
         else {
             plainTextEditor->setText(QString(""));
@@ -336,6 +358,10 @@ void cdcMainWindow::listFilesWidgetSelected() {
         pw->setDocumentInputFileContents(currentDocumentTag, currentDocumentInputFileIndex, plainTextEditor->toPlainText());
         currentDocumentInputFileIndex = index;
         plainTextEditor->setText(pw->getDocumentInputFileContents(currentDocumentTag, index));
+        windowTitle = applicatioName + " - " + pw->getDocumentInputFilesList(currentDocumentTag)[index];
+        if(pw->documentInputFileIsModified(currentDocumentTag,index))
+            windowTitle.append("*");
+        setWindowTitle(windowTitle);
     }
 }
 
@@ -411,6 +437,11 @@ void cdcMainWindow::createActions()
     actionNew->setStatusTip(tr("Create new document/project"));
     connect(actionNew, SIGNAL(triggered()), this, SLOT(createNew()));
 
+    actionSave = new QAction(QIcon(":/icons/icon_gnome_save.png"), tr("&Save this file"), this);
+    actionSave->setShortcuts(QKeySequence::Save);
+    actionSave->setStatusTip(tr("Save current file"));
+    connect(actionSave, SIGNAL(triggered()), this, SLOT(saveCurrentFile()));
+
     actionOpen = new QAction(QIcon(":/icons/open.png"), tr("&Open"), this);
     actionOpen->setShortcuts(QKeySequence::Open);
     actionOpen->setStatusTip(tr("Open a file"));
@@ -445,6 +476,7 @@ void cdcMainWindow::createMenus() {
     menuFile = menuBar()->addMenu(tr("&File"));
     menuFile->addAction(actionNew);
     menuFile->addAction(actionOpenProject);
+    menuFile->addAction(actionSave);
     menuFile->addAction(actionExit);
 
     menuEdit = menuBar()->addMenu(tr("&Tools"));
@@ -479,6 +511,7 @@ void cdcMainWindow::createToolbars()
 {
     toolbarFile = addToolBar(tr("Toolbar"));
     toolbarFile->addAction(actionNew);
+    toolbarFile->addAction(actionSave);
     toolbarFile->addAction(actionOpenProject);
     toolbarFile->addAction(actionBuild);
     toolbarFile->addAction(actionPreferences);

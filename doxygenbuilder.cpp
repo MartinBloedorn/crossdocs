@@ -43,7 +43,7 @@ bool doxygenBuilder::buildDocument(documentWorker *doc, CDC_status *retStatus) {
         return false;
     }
 
-    cdcDoxyPath = getWorkFolder().append("CDC_Doxyfile");
+    cdcDoxyPath = getWorkFolder().append(document->getTag() + "_Doxyfile");
 
     // Creating fresh Doxyfile inside the Work folder
     QStringList args;
@@ -53,7 +53,7 @@ bool doxygenBuilder::buildDocument(documentWorker *doc, CDC_status *retStatus) {
     process->waitForFinished();
 
     // Append the interesting stuff
-    QFile outfile(getWorkFolder() + "cdc.dox");
+    QFile outfile(getWorkFolder() + document->getTag() + ".dox");
     if(!outfile.open(QIODevice::ReadWrite | QIODevice::Truncate))
         return false;
 
@@ -95,7 +95,7 @@ bool doxygenBuilder::buildDocument(documentWorker *doc, CDC_status *retStatus) {
 
     qDebug() << stdOut;
 
-    emit buildFinished(document->getTag(), getWorkFolder() + "/" + document->getTag() + "/hmtl/index.html");
+    //emit buildFinished(document->getTag(), getWorkFolder() + "/" + document->getTag() + "/hmtl/index.html");
 
     return true;
 }

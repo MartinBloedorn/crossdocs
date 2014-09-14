@@ -36,6 +36,7 @@ cdcHighlighter::~cdcHighlighter() {
 void cdcHighlighter::setSyntax(CDC_fileSyntax syntax) {
     structuralRules.clear();
     structuralRule strucRule;
+    QStringList rulelist;
 
     switch (syntax) {
     case CDC_fileSyntax::doxygen:
@@ -50,14 +51,13 @@ void cdcHighlighter::setSyntax(CDC_fileSyntax syntax) {
         strucRule.tagFormat.setForeground(Qt::darkGreen);
         strucRule.tagFormat.setFontWeight(QFont::Bold);
         strucRule.nameFormat.setForeground(Qt::darkBlue);
-        strucRule.regexp = QRegExp("(\\\\section)(\\s+)(\\w+)(\\s+)(.*)"); // Section rule
-        structuralRules.append(strucRule);
-        strucRule.regexp = QRegExp("(\\\\subsection)(\\s+)(\\w+)(\\s+)(.*)"); // Subsection rule
-        structuralRules.append(strucRule);
-        strucRule.regexp = QRegExp("(\\\\subsubsection)(\\s+)(\\w+)(\\s+)(.*)"); // Subsubsection rule
-        structuralRules.append(strucRule);
-        strucRule.regexp = QRegExp("(\\\\paragraph)(\\s+)(\\w+)(\\s+)(.*)"); // Paragraph rule
-        structuralRules.append(strucRule);
+        rulelist << "(\\\\section)(\\s+)(\\w+)(\\s+)(.*)" << "(\\\\subsection)(\\s+)(\\w+)(\\s+)(.*)"
+                    << "(\\\\subsubsection)(\\s+)(\\w+)(\\s+)(.*)" << "(\\\\paragraph)(\\s+)(\\w+)(\\s+)(.*)"
+                       << "(\\\\page)(\\s+)(\\w+)(\\s+)(.*)" << "(\\\\mainpage)(\\s+)(\\w+)(\\s+)(.*)";
+        for (int i = 0; i < rulelist.length(); ++i) {
+            strucRule.regexp = QRegExp(rulelist[i]);
+            structuralRules.append(strucRule);
+        }
         break;
     case CDC_fileSyntax::none:
     default:

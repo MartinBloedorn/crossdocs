@@ -78,6 +78,10 @@ public:
      */
     void    setDocumentInputFileContents(QString doctag, int ifIndex, QString content, CDC_status *retStatus = NULL);
 
+    bool saveDocumentInputFile(QString doctag, int ifIndex, CDC_status *retStatus = NULL);
+
+    bool documentInputFileIsModified(QString doctag, int ifIndex);
+
     QString getDocumentOutputFolder(QString doctag) { return getDocumentbyTag(doctag)->getOutputPath(); }
 
     void    setDocumentInputFileSyntax(QString doctag, int ifIndex, CDC_fileSyntax syntax);

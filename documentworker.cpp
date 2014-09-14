@@ -201,6 +201,7 @@ bool documentWorker::saveInputFile(int index, CDC_status * retStatus) {
         QTextStream in(inputFiles[index].file);
         in << inputFiles[index].contents;
         inputFiles[index].file->close();
+        inputFiles[index].modified = false;
     }
     return true;
 }

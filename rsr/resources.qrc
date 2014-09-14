@@ -15,5 +15,6 @@
         <file>icons/gnomefullscreen.png</file>
         <file>icons/run.png</file>
         <file>icons/new_star.png</file>
+        <file>icons/icon_gnome_save.png</file>
     </qresource>
 </RCC>
