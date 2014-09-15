@@ -68,6 +68,9 @@ private slots:
     void textEditorChanged();
     void updateProjectView();
 
+    void treeContextMenu(const QPoint& pos);
+    void projectContextMenu(const QPoint& pos);
+
     /**
      * @brief Implements the behavior when an object on the structure tree is selected.
      * If a document is selected, its input files are loaded in the listFilesWidget, and the

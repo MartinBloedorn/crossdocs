@@ -136,15 +136,14 @@ QStandardItemModel * projectWorker::getProjectStructure() {
     return structure;
 }
 
-bool projectWorker::build(QString prjconffile, CDC_status *retStatus) {
+bool projectWorker::build(QString doctag, CDC_status *retStatus) {
 
-    //builder = new doxygenBuilder();
+    builder = new doxygenBuilder();
 
-    std::shared_ptr<abstractBuilder> pbuilder (new doxygenBuilder());
+    builder->setWorkFolder(workFolderPath);
+    builder->buildDocument(getDocumentbyTag(doctag));
 
-    pbuilder->setWorkFolder(workFolderPath);
-    pbuilder->buildDocument(project.documents[1]);
-
+    delete builder;
     return true;
 }
 
@@ -168,6 +167,10 @@ void projectWorker::setDocumentInputFileContents(QString doctag, int ifIndex, QS
 
 bool projectWorker::documentInputFileIsModified(QString doctag, int ifIndex) {
     return getDocumentbyTag(doctag)->isModified(ifIndex);
+}
+
+QString projectWorker::getDocumentCddFileContents(QString doctag) {
+    return getDocumentbyTag(doctag)->getCddFileContents();
 }
 
 bool projectWorker::saveDocumentInputFile(QString doctag, int ifIndex, CDC_status *retStatus) {

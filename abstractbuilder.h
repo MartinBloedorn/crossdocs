@@ -39,6 +39,9 @@ public:
 
     void setProjectName(QString name) { projectName = name; }
 
+    void setDocument(documentWorker * d) { doc = d; }
+    documentWorker * document() { return doc; }
+
 signals:
     void buildFinished(QString doctag, QString outfile);
 
@@ -47,6 +50,8 @@ public slots:
 private:
     QString workFolderPath;
     QString projectName;
+
+    documentWorker * doc;
 };
 
 #endif // BUILDWORKER_H

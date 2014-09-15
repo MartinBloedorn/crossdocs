@@ -213,6 +213,18 @@ bool documentWorker::saveAllInputFiles(CDC_status *retStatus) {
     return true;
 }
 
+QString documentWorker::getCddFileContents() {
+    if(!cddFile->open(QIODevice::ReadOnly))
+        return "";
+    QString retcont = cddFile->readAll();
+    cddFile->close();
+    return retcont;
+}
+
+bool documentWorker::saveCddFileContents(QString contents, CDC_status *retStatus) {
+    return true;
+}
+
 void documentWorker::setInputFileSyntax(int index, CDC_fileSyntax syntax) {
     if(!(index < inputFiles.length() && index >= 0)) {
         qWarning() << QString(__FUNCTION__) << "Invalid index";

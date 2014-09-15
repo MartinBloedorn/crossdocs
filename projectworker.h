@@ -55,7 +55,7 @@ public:
     bool configureProject(QString prjconffile, CDC_status * retStatus = NULL);
     bool configureProject(QDir pcf, CDC_status * rSt = NULL) { return configureProject(pcf.absolutePath(), rSt); }
 
-    bool build(QString prjconffile = "", CDC_status * retStatus = NULL);
+    bool build(QString doctag = "", CDC_status * retStatus = NULL);
 
     /**
      * @brief Returns the contents of a certain input file from a document.
@@ -81,6 +81,8 @@ public:
     bool saveDocumentInputFile(QString doctag, int ifIndex, CDC_status *retStatus = NULL);
 
     bool documentInputFileIsModified(QString doctag, int ifIndex);
+
+    QString getDocumentCddFileContents(QString doctag);
 
     QString getDocumentOutputFolder(QString doctag) { return getDocumentbyTag(doctag)->getOutputPath(); }
 

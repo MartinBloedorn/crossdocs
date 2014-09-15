@@ -65,6 +65,20 @@ public:
 
     bool saveAllInputFiles(CDC_status * retStatus = NULL);
 
+    /**
+     * @brief Returns the contents of the Cdd file (conf. file) that generated the document.
+     * @return The whole contents. Returns and empty string if something went wrong.
+     */
+    QString getCddFileContents();
+
+    /**
+     * @brief Saves \em contents to the cddFile.
+     * @param contents Contents to be saved.
+     * @param retStatus
+     * @return True if all went ok.
+     */
+    bool saveCddFileContents(QString contents, CDC_status * retStatus = NULL);
+
     void setInputFileSyntax(int index, CDC_fileSyntax syntax);
     CDC_fileSyntax getInputFileSyntax(int index);
 

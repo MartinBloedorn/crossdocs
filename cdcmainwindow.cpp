@@ -83,28 +83,9 @@ void cdcMainWindow::menuSyntaxTriggered(QAction *selectedSyntax) {
 }
 
 void cdcMainWindow::requestBuild() {
-//    qDebug() << QString(__FUNCTION__) << " Request build";
-
-//    QString filename("/Users/martin/Git/provant-software/io-board/stm32f4/app/remote-controlled-flight/doc/html/index.html");
-//    QFile file(filename);
-
-//    if (!file.open(QIODevice::ReadOnly)) {
-//        QMessageBox::information(this, tr("Unable to open file"),
-//            file.errorString());
-//        return;
-//    }
-
-//    QTextStream out(&file);
-//    QString output = out.readAll();
-
-//    // display contents
-//    plainTextEditor->setPlainText(output);
-//    webView->setHtml(output, QUrl::fromLocalFile(filename));
-
     saveCurrentFile();
-    pw->build("");
+    pw->build(currentDocumentTag);
     updateView("", pw->getDocumentOutputFolder(currentDocumentTag));
-
 }
 
 void cdcMainWindow::open() {
@@ -365,6 +346,48 @@ void cdcMainWindow::listFilesWidgetSelected() {
     }
 }
 
+void cdcMainWindow::treeContextMenu(const QPoint &pos) {
+    QPoint globalPos = treeProject->mapToGlobal(pos);
+    QString doc = treeProject->model()->data(treeProject->currentIndex(), CDC_docStructuralElementRole::Doc).toString();
+
+    QMenu cMenu;
+    cMenu.addAction("Edit definitions of " + doc);
+    cMenu.addAction("Edit resources of " + doc);
+    QAction* selectedItem = cMenu.exec(globalPos);
+
+    if(selectedItem)
+    {
+        switch(cMenu.actions().lastIndexOf(selectedItem)) {
+        case 0:
+            plainTextEditor->setText(pw->getDocumentCddFileContents(currentDocumentTag));
+            break;
+        default:
+            break;
+        }
+    }
+}
+
+void cdcMainWindow::projectContextMenu(const QPoint &pos) {
+    // for most widgets
+    QPoint globalPos = treeProject->mapToGlobal(pos);
+    // for QAbstractScrollArea and derived classes you would use:
+    // QPoint globalPos = myWidget->viewport()->mapToGlobal(pos);
+
+    QMenu myMenu;
+    myMenu.addAction("Edit " + pw->getProjectName());
+    // ...
+
+    QAction* selectedItem = myMenu.exec(globalPos);
+    if (selectedItem)
+    {
+        // something was chosen, do stuff
+    }
+    else
+    {
+        // nothing was chosen
+    }
+}
+
 void cdcMainWindow::messageHandler(QtMsgType type, const char *msg, bool isDialog)
 {
     if(isDialog)
@@ -544,11 +567,12 @@ void cdcMainWindow::createWidgets()
     logArea->setFont(QFont("Courier"));
 
     listFilesWidget->setAlternatingRowColors(true);
+    treeProject->setContextMenuPolicy(Qt::CustomContextMenu);
 
     // --------------------------
 
-    QDockWidget *dockFiles     = new QDockWidget(tr("Files"),    this);
-    QDockWidget *dockStructure = new QDockWidget(tr("Index"), this);
+    QDockWidget *dockFiles     = new QDockWidget(tr("Input Files"),    this);
+    QDockWidget *dockStructure = new QDockWidget(tr("Project"), this);
 
     QSplitter   *vCentralSplitter = new QSplitter(this);
     QSplitter   *hCentralSplitter = new QSplitter(this);
@@ -564,6 +588,7 @@ void cdcMainWindow::createWidgets()
                      " </body></html>";
     webView->setHtml(string);
 
+    dockStructure->setContextMenuPolicy(Qt::CustomContextMenu);
     dockStructure->setWidget(treeProject);
     dockFiles->setWidget(listFilesWidget);
 
@@ -591,8 +616,10 @@ void cdcMainWindow::createWidgets()
     connect(treeProject, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(projectTreeItemSelected(QModelIndex)));
     connect(treeProject, SIGNAL(expanded(QModelIndex)), this, SLOT(projectTreeItemExpanded(QModelIndex)));
     connect(treeProject, SIGNAL(collapsed(QModelIndex)), this, SLOT(projectTreeItemCollapsed(QModelIndex)));
+    connect(treeProject, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(treeContextMenu(QPoint)));
     connect(listFilesWidget, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(listFilesWidgetSelected()));
     connect(plainTextEditor, SIGNAL(textChanged()), this, SLOT(textEditorChanged()));
+    connect(dockStructure, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(projectContextMenu(QPoint)));
 
     connect(new QShortcut(QKeySequence::Undo, this), SIGNAL(activated()), plainTextEditor, SLOT(undo()));
     connect(new QShortcut(QKeySequence::Redo, this), SIGNAL(activated()), plainTextEditor, SLOT(redo()));
